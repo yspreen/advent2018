@@ -1,0 +1,46 @@
+   add_int    . 16 .   # JUMP >A
+   set_int    1    B   # B := 1
+   set_int    1    C   # C := 1
+   mul_reg    B C  D   # D := B * C
+   eq_reg_reg D E  D   # D := D == E ? 1 : 0
+   add_reg    D .  .   # ?i := i + D
+   add_int    . 1  .   # JUMP >B
+   add_reg    A B  A   # A := A + B
+>B add_int    C 1  C   # C := C + 1
+   gt_reg_reg C E  D   # D := C == E ? 1 : 0
+   add_reg    . D  .   # ?i := i + D
+   set_int    C    .   # i := C
+   add_int    B 1  B   # B := B + 1
+   gt_reg_reg B E  D   # D := B > E ? 1 : 0
+   add_reg    D .  .   # ?i := i + D
+   set_int    B    .   # ?i := D
+   mul_reg    . .  .   # ?i := i * i
+>A add_int    E 2  E   # E := E + 2
+   mul_reg    E E  E   # E := E * E
+   mul_reg    . E  E   # E := E * i
+   mul_int    E 11 E   # E := E * 11
+   add_int    D 4  D   # D := D + 4
+   mul_reg    D .  D   # D := D * i
+   add_int    D 21 D   # 
+   add_reg    E D  E   # 
+   add_reg    . A  .   # 
+   set_int    A    .   # 
+   set_reg    .    D   # 
+   mul_reg    D .  D   # 
+   add_reg    . D  D   # 
+   mul_reg    . D  D   # 
+   mul_int    D 14 D   # 
+   mul_reg    D .  D   # 
+   add_reg    E D  E   # 
+   set_int    A    A   # 
+   set_int    A    .   # 
+
+
+
+10  18
+
+20  42 +24
+
+30  72 +30
+
+40  90 +18
